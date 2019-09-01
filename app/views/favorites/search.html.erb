@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <%= render :partial => "favorites" %>
+  
+  <p>書籍検索</p>
+  
+  <%= form_tag(favorites_search_path, method: :get, class: 'form-inline') do %>
+    <%= text_field_tag :title, @title, class: 'form-control', placeholder:'書籍タイトル', size: 40 %>
+    <%= submit_tag '商品を検索', class: 'btn'%>
+  <% end %>
+  
+  <!--検索結果の表示-->
+  
+  <% @books.each do |book| %>
+    
+      <div class="row">
+        <div class="col-md-6"><img src="<%= book[:image_url] %>" class="img-responsive" alt=""></div>
+      </div>
+    
+    <h3><%= book[:title] %></h3>
+    <% if @favorite_books.map(&:isbn).include?(book[:isbn]) %>
+      <h3><p>お気に入りに追加済み</p></h3>
+    <% else %>
+      <%= form_tag(favorites_path, method: :post) do %>
+        <%= hidden_field_tag :isbn, book[:isbn] %>
+        <%= submit_tag 'お気に入り書籍に追加' %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+

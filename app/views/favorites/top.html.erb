@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <%= render :partial => "favorites" %>
+  
+  <p>セール中の書籍</p>
+  
+    <% @favorite_books.each do |favo_book| %>
+      <% if favo_book.stores.present?%>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-3"><img src="<%= favo_book[:image_url] %>" class="img-responsive" alt="">
+          </div>
+        </div>
+        <%= favo_book.title %>
+        <% favo_book.stores.each do |store| %>
+          <%= store.name %>
+          <%= store.itemPrice %>
+        <% end %>
+      <% end %>
+    <% end %>
+</div>
+  
