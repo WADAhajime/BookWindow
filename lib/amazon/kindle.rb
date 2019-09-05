@@ -2,7 +2,10 @@ module Amazon::Kindle extend self
   def batch
     require 'httpclient'
     require 'json'
-  
+    
+    SaleBook.delete_all
+    Store.delete_all
+    
     uri = "https://api.dashblock.io/model/v1"
     params = {
       api_key: "32b90c90-c1cf-11e9-8910-ad408d8b1ff7",
