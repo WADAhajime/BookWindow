@@ -9,7 +9,7 @@ class FavoritesController < ApplicationController
     @favorite_books = current_user.favorite_books
     
     @q = @favorite_books.ransack(params[:q])
-    @favo_books = @q.result(distinct: true)
+    @favorite_books = @q.result(distinct: true)
   end
   
   def destroy
@@ -37,7 +37,7 @@ class FavoritesController < ApplicationController
     end
   end
 
-  def create
+  def show
     @book = Book.find_or_initialize_by(isbn: params[:isbn])
 
     unless @book.persisted?

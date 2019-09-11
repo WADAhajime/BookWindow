@@ -27,3 +27,25 @@
   width: 100%;
   z-index: 10000;
 }
+
+.row, book {
+  margin: 1% 0%;
+}
+.book {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image {
+  height: 100%;
+}
+
+.text {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  flex-direction:column;
+}
+

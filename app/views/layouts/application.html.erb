@@ -19,26 +19,21 @@
     <% end %>
     
     <header>
-      <div class="container-fluid">
         <nav class="navbar navbar-expand-sm navbar-dark mb-2" style="background-color:#e3f2fd;">
           <span class="navbar-text"><%= link_to 'ホーム', pages_index_path %></span>
                 
-          <% if !logged_in?%>
+          <% unless logged_in?%>
             <span class="navbar-text"><%= link_to 'ログイン', login_path %></span>
             <span class="navbar-text"><%= link_to 'アカウント作成', new_user_path %></span>
           <% end %>
           
           <% if logged_in?%>
             <span class="navbar-text"><%= link_to 'ログアウト', logout_path, method: :delete %></span>
-          <% end %>
-          
-          <% if logged_in?%>
             <span class="navbar-text"><%= link_to 'お気に入り', favorites_top_path %></span>
             <span class="navbar-text"><%= link_to '所有している書籍', book_shelfs_top_path %></span>
             <span class="navbar-text"><%= link_to '問い合わせ', questions_top_path %></span>
           <% end %>
         </nav>
-      </div>
     </header>
     
     <%= yield %>

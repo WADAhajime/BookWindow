@@ -1,20 +1,22 @@
-<div class="container-fluid">
-  <%= render :partial => "favorites" %>
-  
-  <p>セール中の書籍</p>
-  
+<%= render :partial => "favorites" %>
+
+<div class="container-fluid"> 
     <% @favorite_books.each do |favo_book| %>
       <% if favo_book.stores.present?%>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xs-3"><img src="<%= favo_book[:image_url] %>" class="img-responsive" alt="">
+        <div class="row book">
+          <div class="col-md-4 image">
+            <img src="<%= favo_book[:image_url] %>" class="img-responsive" alt="">
+          </div>
+          <div class="col-md-5">
+            <div class="text">
+              <div><h3><%= favo_book.title %></h3></div>
+              <% favo_book.stores.each do |store| %>
+                <%= store.name %>
+                <%= store.itemPrice %>
+              <% end %>
+            </div>
           </div>
         </div>
-        <%= favo_book.title %>
-        <% favo_book.stores.each do |store| %>
-          <%= store.name %>
-          <%= store.itemPrice %>
-        <% end %>
       <% end %>
     <% end %>
 </div>

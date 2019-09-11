@@ -5,7 +5,7 @@ class BookShelfsController < ApplicationController
     @purchased_books = current_user.purchased_books
     
     @q = @purchased_books.ransack(params[:q])
-    @pur_books = @q.result(distinct: true)
+    @purchased_books = @q.result(distinct: true)
   end
   
   def destroy

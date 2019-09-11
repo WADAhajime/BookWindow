@@ -1,12 +1,14 @@
+<%= render :partial => "book_shelf" %>
+
 <div class="container-fluid">
-  <%= render :partial => "book_shelf" %>
-  
-  <p>書籍検索</p>
-  
-  <%= form_tag(book_shelfs_search_path, method: :get, class: 'form-inline') do %>
-    <%= text_field_tag :title, @title, class: 'form-control', placeholder:'書籍タイトル', size: 40 %>
-    <%= submit_tag '商品を検索', class: 'btn'%>
-  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_tag(book_shelfs_search_path, method: :get, class: 'form-inline') do %>
+        <%= text_field_tag :title, @title, class: 'form-control', placeholder:'書籍タイトル', size: 40 %>
+        <%= submit_tag '商品を検索', class: 'btn'%>
+      <% end %>
+    </div>
+  </div>
   
   <!--検索結果の表示-->
   

@@ -19,10 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, 'log/crontab.log'
-ENV['RAILS_ENV'] ||= 'development'
-set :environment, ENV['RAILS_ENV']
+# set :output, 'log/crontab.log'
+# ENV['RAILS_ENV'] ||= 'development'
+# set :environment, ENV['RAILS_ENV']
 
-every 30.minutes do
-   rake "sns:twitter"
- end
+# every 30.minutes do
+#    rake "sns:twitter"
+#  end

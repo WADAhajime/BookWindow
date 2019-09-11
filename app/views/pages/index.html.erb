@@ -1,25 +1,26 @@
-<div class="top-hero-wrapper text-center">
-  <div class="container top-hero-container">
+<div class="container-fluid">
+  <div class="top-hero-wrapper text-center">
     <h1 class="text-white">セール情報一覧</h1>
-    <%= link_to ("https://www.amazon.co.jp") do %>
-      <span class="fab fa-amazon"></span> 
-    <% end %>
-    <%= link_to 'kobo', 'https://books.rakuten.co.jp/e-book/?gclid=CjwKCAjw4NrpBRBsEiwAUcLcDDpUM5nSSbV0l1Kb7mxFEZYHrQcIiZIiwFq8Ef3DJCMOqFBHCMXquBoC7pcQAvD_BwE#' %>
-    <%= link_to 'ebook', 'https://ebookjapan.yahoo.co.jp/sale/' %>
-    <%= link_to 'DMM', 'https://book.dmm.com/' %>
-    <%= link_to 'BookLive!', 'https://booklive.jp/landing/s-page/ebookcoupon-2dy?utm_source=spad&utm_medium=affiliate&utm_campaign=102&utm_content=normal&vc_lpp=MSYzNjlhNGQ1MTExZCY1ZDM2Y2I3NCYzMTE0NWYmNWQ1ZTU4NzQmQUFBQmJCNEt2dVNXLWNxNjBvRUpndmhQJjQJQUFBQmJCNEt2dVNXLWNxNjBvRUpndmhQCTA4ODUyMTQ2NzcwMjgwMDg4NjE5MDcyMzA4NTUxNgkJaHR0cHM6Ly9lYm9va2lyb2hhLmNvbS8_dXRtX3NvdXJjZT1nb29nbGUmdXRtX21lZGl1bT1jcGMmdXRtX2NvbnRlbnQ9a2V5d29yZDEmZ2NsaWQ9Q2p3S0NBanc0TnJwQlJCc0Vpd0FVY0xjREFYWEhPX2JjcTRhNklBSUtFNXppbEhzaXZjTzhLSjdpMlZNd1l6U1dfcWtlSkxGeHpNWTJ4b0NEODhRQXZEX0J3RQk' %>
   </div>
+  
+  <% @books.each do |book| %>
+    <% if book.stores.present?%>
+      <div class="row book">
+        <div class="col-md-4 image">
+          <img src="<%= book[:image_url] %>" class="img-responsive" alt="">
+        </div>
+        <div class="col-md-5">
+          <div class="text">
+            <div><h3><%= book.title %></h3></div>
+            <% book.stores.each do |store| %>
+              <%= store.name %>
+              <%= store.itemPrice %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 

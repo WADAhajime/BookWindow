@@ -1,44 +1,35 @@
 <%= render :partial => "book_shelf" %>
 
-<P>登録書籍検索</P>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <%= search_form_for @q, class: 'form-inline', url: book_shelfs_top_path do |f| %>
+        <%= f.search_field :title_cont, class: 'form-control', placeholder:'お気に入りした書籍を検索', size: 30 %>
+        <%= f.submit "検索", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 
-<%= search_form_for @q, url: book_shelfs_top_path do |f| %>
-    <%= f.label :title, "書籍タイトル" %>
-    <%= f.search_field :title_cont %>
-    
-    <%= f.submit "検索" %>
-<% end %>
-
-<p>所有している書籍</p>
-
-<% unless @pur_books.present? %>
   <% @purchased_books.each do |book| %>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-3"><img src="<%= book[:image_url] %>" class="img-responsive" alt="">
+    <div class="row book">
+      <div class="col-md-4 image">
+        <img src="<%= book[:image_url] %>" class="img-responsive" alt="">
+      </div>
+      <div class="col-md-5">
+        <div class="text">
+          <h3><%= book.title %></h3>
         </div>
       </div>
-      <%= book.title %>
-      <% if Reed.find_by(user_id: current_user.id, book_id: book.id)%>
-        <%= link_to("未読にする", "/purchaseds/#{book.id}/default", {method: "post"}) %>
-      <% else %>
-        <%= link_to("既読にする", "/purchaseds/#{book.id}/state", {method: "post"}) %>
-      <% end %>
-      <%= link_to("削除", "/purchaseds/#{book.id}/destroy", {method: "post"}) %>
-  <% end %>
-<% else %>
-  <% @pur_books.each do |pur_book| %>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-3"><img src="<%= pur_book[:image_url] %>" class="img-responsive" alt="">
+      <div class="col-md-3">
+        <div class="text">
+          <% if Reed.find_by(user_id: current_user.id, book_id: book.id)%>
+            <%= link_to("未読にする", "/purchaseds/#{book.id}/default", method: "post", class: "btn btn-success") %>
+          <% else %>
+            <%= link_to("既読にする", "/purchaseds/#{book.id}/state", method: "post", class: "btn") %>
+          <% end %>
+          <%= link_to("削除", "/purchaseds/#{book.id}/destroy", method: "post", class: "btn btn-primary") %>
         </div>
       </div>
-      <%= pur_book.title %>
-      <% if Reed.find_by(user_id: current_user.id, book_id: pur_book.id)%>
-        <%= link_to("未読にする", "/purchaseds/#{pur_book.id}/default", {method: "post"}) %>
-      <% else %>
-        <%= link_to("既読にする", "/purchaseds/#{pur_book.id}/state", {method: "post"}) %>
-      <% end %>
-      <%= link_to("削除", "/purchaseds/#{pur_book.id}/destroy", {method: "post"}) %>
+    </div>
   <% end %>
-<% end %>
+</div>

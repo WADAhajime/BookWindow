@@ -32,7 +32,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap-sass'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -40,12 +39,13 @@ gem "jquery-rails"
 gem 'bcrypt'
 gem 'ransack'
 gem 'rakuten_web_service'
-gem 'csv'
 gem 'sass-rails', '~> 5.0'
-gem 'honoka-rails', '>= 3.3.6.3'
+gem 'bootstrap-honoka-rails'
 gem 'httpclient'
 gem 'json'
-gem 'whenever'
+gem 'bootstrap'
+gem 'jquery-ui-rails'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -64,6 +64,7 @@ group :development do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'whenever'
 end
 
 group :test do
@@ -80,4 +81,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'jquery-rails'
