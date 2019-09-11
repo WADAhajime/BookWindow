@@ -1,21 +1,20 @@
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-offset-4 col-md-4 users-new-container">
-        <h1 class="text-center text-white">ログイン</h1>
-        <%= form_for :session, url: login_path do |f| %>
-          <div class="form-group">
-            <%= f.label :メールアドレス, class: "text-white" %>
-            <%= f.text_field :email, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :パスワード, class: "text-white" %>
-            <%= f.password_field :password, class: "form-control" %>
-          </div>
-          <P>テストユーザーのメールアドレス: dummy@dummy.co.jp</P>
-          <P>テストユーザー のパスワード: root</P>
-          <%= f.submit "ログイン", class: "btn-block btn-white" %>
-        <% end %>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-4 col-md-5 users-new-container">
+      <h1 class="text-center text-white">ログイン</h1>
+      <%= form_for :session, url: login_path do |f| %>
+        <div class="form-group">
+          <%= f.label :メールアドレス, class: "text-white" %>
+          <%= f.text_field :email, class: "form-control", placeholder:"メールアドレス" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :パスワード, class: "text-white" %>
+          <%= f.password_field :password, class: "form-control", placeholder:"パスワード" %>
+        </div>
+        <P>テストユーザーのメールアドレス: dummy@dummy.co.jp</P>
+        <P>テストユーザー のパスワード: root</P>
+        <%= f.submit "ログイン", class: "btn btn-primary btn-lg btn-block" %>
+      <% end %>
     </div>
   </div>
+</div>

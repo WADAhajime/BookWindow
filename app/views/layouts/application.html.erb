@@ -19,21 +19,41 @@
     <% end %>
     
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark mb-2" style="background-color:#e3f2fd;">
-          <span class="navbar-text"><%= link_to 'ホーム', pages_index_path %></span>
-                
-          <% unless logged_in?%>
-            <span class="navbar-text"><%= link_to 'ログイン', login_path %></span>
-            <span class="navbar-text"><%= link_to 'アカウント作成', new_user_path %></span>
-          <% end %>
-          
-          <% if logged_in?%>
-            <span class="navbar-text"><%= link_to 'ログアウト', logout_path, method: :delete %></span>
-            <span class="navbar-text"><%= link_to 'お気に入り', favorites_top_path %></span>
-            <span class="navbar-text"><%= link_to '所有している書籍', book_shelfs_top_path %></span>
-            <span class="navbar-text"><%= link_to '問い合わせ', questions_top_path %></span>
-          <% end %>
+      <div class="bs-component">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <%= link_to 'ホーム', pages_index_path, class: "navbar-brand" %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+              <% unless logged_in?%>
+                <li class="nav-item">
+                  <%= link_to 'ログイン', login_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'サインアップ', new_user_path, class: "nav-link" %>
+                </li>
+              <% end %>
+              <% if logged_in?%>
+                <li class="nav-item">
+                  <%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'お気に入り', favorites_top_path, class: "nav-link" %></a>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '所有している書籍', book_shelfs_top_path, class: "nav-link" %></a>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '問い合わせ', questions_top_path, class: "nav-link" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
         </nav>
+      </div>
     </header>
     
     <%= yield %>

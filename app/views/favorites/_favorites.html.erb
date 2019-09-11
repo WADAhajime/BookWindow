@@ -1,5 +1,22 @@
-<nav class="navbar navbar-light mb-2" style="background-color:#e3f2fd;">
-  <span class="navbar-text"><%= link_to 'セール中の書籍', favorites_top_path %></span>
-  <span class="navbar-text"><%= link_to '登録書籍一覧', favorites_index_path %></span>
-  <span class="navbar-text"><%= link_to '書籍を探す', favorites_search_path %></span>
-</nav>
+<div class="bs-component">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to 'セール中の書籍', favorites_top_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '登録書籍一覧', favorites_index_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '書籍を探す', favorites_search_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+

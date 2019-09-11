@@ -1,19 +1,34 @@
-<%= render :partial => "favorites" %>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
-      <%= form_tag(favorites_search_path, method: :get, class: 'form-inline') do %>
-        <%= text_field_tag :title, @title, class: 'form-control', placeholder:'書籍タイトル', size: 30 %>
-        <%= submit_tag '検索', class: "btn btn-primary" %>
+<div class="bs-component">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to 'セール中の書籍', favorites_top_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '登録書籍一覧', favorites_index_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '書籍を探す', favorites_search_path, class: "nav-link" %>
+        </li>
+      </ul>
+      <%= form_tag(favorites_search_path, method: :get, class: 'form-inline my-2 my-lg-0') do %>
+        <%= text_field_tag :title, @title, class: 'form-control mr-sm-2', placeholder:'お気に入りする書籍を検索', size: 30 %>
+        <%= submit_tag '検索', class: "btn btn-secondary my-2 my-sm-0" %>
       <% end %>
     </div>
-  </div>
-  
+  </nav>
+</div>
+
+<div class="container-fluid">
   <% @books.each do |book| %>
     <div class="row book"> 
       <div class="col-md-4 image">
-        <img src="<%= book[:image_url] %>" class="img-responsive" alt="">
+        <img src="<%= book[:image_url] %>" class="img-fluid" alt="">
       </div>
       <div class="col-md-5">
         <div class="text">
