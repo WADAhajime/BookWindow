@@ -55,6 +55,7 @@ class BookShelfsController < ApplicationController
       @book = Book.new(read(results.first))
       @book.save
     end
+    
     purchased = Purchased.new(user_id: current_user.id, book_id: @book.id)
     purchased.save
       redirect_to "/book_shelfs/search"
@@ -63,21 +64,23 @@ class BookShelfsController < ApplicationController
 
   private
   def read(result)
+    image_url = result['mediumImageUrl'].gsub('?_ex=120x120', '')
     title = result['title']
-    url = result['itemUrl']
+    publisherName = result['publisherName']
+    author = result['author']
     isbn = result['isbn']
     itemPrice = result['itemPrice']
-    image_url = result['mediumImageUrl'].gsub('?_ex=120x120', '')
-
+    url = result['itemUrl']
+    
     {
+      image_url: image_url,
       title: title,
-      url: url,
+      publisherName: publisherName,
+      author: author,
       isbn: isbn,
       itemPrice: itemPrice,
-      image_url: image_url,
+      url: url,
     }
 
   end
-  
-  
 end

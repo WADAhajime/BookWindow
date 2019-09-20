@@ -30,22 +30,37 @@
 
 .row, book {
   margin: 1% 0%;
-}
-.book {
-  display: flex;
-  flex-wrap: wrap;
+  border-top: solid #008080;
+  border-bottom: solid #008080;
+  // width: auto;
+  // height:450px;
 }
 
+
 .image {
-  height: 100%;
+  width: auto;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .text {
   height: 100%;
   display: flex;
   justify-content: center;
+  // align-items: center;
+  text-align: left;
+  flex-direction: column;
+}
+
+.button {
+  height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  text-align:center;
-  flex-direction:column;
+  text-align: center;
+  flex-direction: column;
 }
 

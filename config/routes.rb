@@ -22,8 +22,6 @@ Rails.application.routes.draw do
   get 'questions/top'
   get 'pages/index'
   
-  # get 'start', to:"favorites#start"
-  
   resources :users
   resources :favorites
   resources :purchaseds

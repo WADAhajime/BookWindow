@@ -28,7 +28,10 @@
       </div>
       <div class="col-md-5">
         <div class="text">
-          <h3><%= book.title %></h3>
+          <div><h4><%= book[:title] %></h4></div>
+          <div><%= "出版社: #{book[:publisherName]}" %></div>
+          <div><%= "著者: #{book[:author]}" %></div>
+          <div><%= "ISBN: #{book[:isbn]}" %></div>
         </div>
       </div>
       <div class="col-md-3">

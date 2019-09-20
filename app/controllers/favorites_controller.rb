@@ -37,7 +37,7 @@ class FavoritesController < ApplicationController
     end
   end
 
-  def show
+  def create
     @book = Book.find_or_initialize_by(isbn: params[:isbn])
 
     unless @book.persisted?
@@ -54,18 +54,22 @@ class FavoritesController < ApplicationController
 
   private
   def read(result)
+    image_url = result['mediumImageUrl'].gsub('?_ex=120x120', '')
     title = result['title']
-    url = result['itemUrl']
+    publisherName = result['publisherName']
+    author = result['author']
     isbn = result['isbn']
     itemPrice = result['itemPrice']
-    image_url = result['mediumImageUrl'].gsub('?_ex=120x120', '')
-
+    url = result['itemUrl']
+    
     {
+      image_url: image_url,
       title: title,
-      url: url,
+      publisherName: publisherName,
+      author: author,
       isbn: isbn,
       itemPrice: itemPrice,
-      image_url: image_url,
+      url: url,
     }
 
   end

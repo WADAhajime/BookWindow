@@ -14,10 +14,12 @@ ActiveRecord::Schema.define(version: 2019_07_29_082325) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
+    t.string "author"
+    t.string "publisherName"
     t.string "url"
     t.string "isbn"
-    t.string "image_url"
     t.decimal "itemPrice", precision: 10
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_082325) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_favorites_on_book_id"
+    t.index ["user_id", "book_id"], name: "index_favorites_on_user_id_and_book_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
@@ -37,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_082325) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_purchaseds_on_book_id"
+    t.index ["user_id", "book_id"], name: "index_purchaseds_on_user_id_and_book_id", unique: true
     t.index ["user_id"], name: "index_purchaseds_on_user_id"
   end
 

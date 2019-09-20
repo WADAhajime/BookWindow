@@ -11,9 +11,12 @@
         </div>
         <div class="col-md-5">
           <div class="text">
-            <div><h3><%= book.title %></h3></div>
+            <div><h4><%= book[:title] %></h4></div>
+            <div><%= "出版社: #{book[:publisherName]}" %></div>
+            <div><%= "著者: #{book[:author]}" %></div>
+            <div><%= "ISBN: #{book[:isbn]}" %></div
             <% book.stores.each do |store| %>
-              <%= store.name %>
+              <%= "特価: #{store.name} "%>
               <%= store.itemPrice %>
             <% end %>
           </div>

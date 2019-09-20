@@ -20,34 +20,36 @@
     </div>
   </nav>
 </div>
-  
+
 <div class="container-fluid">
   <% @books.each do |book| %>
     <div class="row book">
       <div class="col-md-4 image">
-        <div class="col-md-6"><img src="<%= book[:image_url] %>" class="img-fluid" alt=""></div>
+        <img src="<%= book[:image_url] %>" class="img-fluid" alt="">
       </div>
       <div class="col-md-5">
         <div class="text">
-          <h3><%= book[:title] %></h3>
+          <div><h4><%= book[:title] %></h4></div>
+          <div><%= "出版社: #{book[:publisherName]}" %></div>
+          <div><%= "著者: #{book[:author]}" %></div>
+          <div><%= "ISBN: #{book[:isbn]}" %></div>
+          <div><%= "価格:￥#{book[:itemPrice]}" %></div>
         </div>
       </div>
-    <% if @purchased_books.blank? %>
-      <%= form_tag(book_shelfs_path, method: :post) do %>
-        <%= hidden_field_tag :isbn, book[:isbn] %>
-        <%= submit_tag '購入済み書籍に追加' %>
-      <% end %>
-    <% else %>
-      <% @purchased_books.each do |pur_book| %>
-        <% if book[:isbn] == pur_book.isbn %>
-          <P>購入済み書籍に追加済み</P>
+      <div class="col-md-3">
+        <% if @purchased_books.map(&:isbn).include?(book[:isbn]) %>
+          <div class="text">
+            <button class = "btn btn-primary" disabled >購入済み書籍に追加済み</ button>
+          </div>
         <% else %>
+        <div class="text">
           <%= form_tag(book_shelfs_path, method: :post) do %>
             <%= hidden_field_tag :isbn, book[:isbn] %>
-            <%= submit_tag '購入済み書籍に追加' %>
+            <%= submit_tag '購入済み書籍に追加', class: "btn btn-primary" %>
           <% end %>
+        </div>
         <% end %>
-      <% end %>
-    <% end %>
+      </div>
+    </div>
   <% end %>
 </div>

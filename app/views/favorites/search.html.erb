@@ -26,19 +26,22 @@
 
 <div class="container-fluid">
   <% @books.each do |book| %>
-    <div class="row book"> 
+    <div class="row book">
       <div class="col-md-4 image">
         <img src="<%= book[:image_url] %>" class="img-fluid" alt="">
       </div>
       <div class="col-md-5">
-        <div class="text">
-          <div><h3><%= book[:title] %></h3></div>
-          <div><%= book[:isbn] %></div>
+        <div class= "text">
+          <div><h4><%= book[:title] %></h4></div>
+          <div><%= "出版社: #{book[:publisherName]}" %></div>
+          <div><%= "著者: #{book[:author]}" %></div>
+          <div><%= "ISBN: #{book[:isbn]}" %></div>
+          <div><%= "価格:￥#{book[:itemPrice]}" %></div>
         </div>
       </div>
       <div class="col-md-3">
         <% if @favorite_books.map(&:isbn).include?(book[:isbn]) %>
-          <div class="text">
+          <div class="button">
             <button class = "btn btn-primary" disabled >お気に入りに追加済み</ button>
           </div>
         <% else %>

@@ -9,9 +9,12 @@
           </div>
           <div class="col-md-5">
             <div class="text">
-              <div><h3><%= favo_book.title %></h3></div>
+              <div><h4><%= favo_book[:title] %></h4></div>
+              <div><%= "出版社: #{favo_book[:publisherName]}" %></div>
+              <div><%= "著者: #{favo_book[:author]}" %></div>
+              <div><%= "ISBN: #{favo_book[:isbn]}" %></div
               <% favo_book.stores.each do |store| %>
-                <%= store.name %>
+                <%= "特価: #{store.name} "%>
                 <%= store.itemPrice %>
               <% end %>
             </div>
@@ -20,4 +23,3 @@
       <% end %>
     <% end %>
 </div>
-  
