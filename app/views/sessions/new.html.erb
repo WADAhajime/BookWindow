@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-offset-4 col-md-5 users-new-container">
-      <h1 class="text-center text-white">ログイン</h1>
+    <div class="offset-md-3 col-md-6">
       <%= form_for :session, url: login_path do |f| %>
         <div class="form-group">
           <%= f.label :メールアドレス, class: "text-white" %>
@@ -15,6 +14,16 @@
         <P>テストユーザー のパスワード: root</P>
         <%= f.submit "ログイン", class: "btn btn-primary btn-lg btn-block" %>
       <% end %>
+      <!--<%= form_for :session, url: login_path do |f| %>-->
+      <!--  <%= hidden_field_tag :email, "dummy@dummy.co.jp" %>-->
+      <!--  <%= hidden_field_tag :password, "root" %>-->
+      <!--  <%= f.submit "簡単ログイン", class: "btn btn-warning btn-lg btn-block" %>-->
+      <!--<% end %>-->
     </div>
   </div>
 </div>
+
+<!--<input type="submit" name="commit" value="簡単ログイン" class="btn-easylogin" data-disable-with="簡単ログイン">-->
+
+
+      

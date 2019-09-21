@@ -54,7 +54,7 @@ class FavoritesController < ApplicationController
 
   private
   def read(result)
-    image_url = result['mediumImageUrl'].gsub('?_ex=120x120', '')
+    image_url = result['largeImageUrl']#.gsub('?_ex=200x200', '')
     title = result['title']
     publisherName = result['publisherName']
     author = result['author']
@@ -71,6 +71,5 @@ class FavoritesController < ApplicationController
       itemPrice: itemPrice,
       url: url,
     }
-
   end
 end

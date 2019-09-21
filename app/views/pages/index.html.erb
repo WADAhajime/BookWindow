@@ -1,20 +1,20 @@
 <div class="container-fluid">
   <div class="top-hero-wrapper text-center">
-    <h1>セール情報一覧</h1>
+    <h1>セール書籍一覧</h1>
   </div>
   
   <% @books.each do |book| %>
     <% if book.stores.present?%>
       <div class="row book">
-        <div class="col-md-4 image">
+        <div class="col-md-3 image">
           <img src="<%= book[:image_url] %>" class="img-fluid" alt="">
         </div>
-        <div class="col-md-5">
+        <div class="col-md-9">
           <div class="text">
             <div><h4><%= book[:title] %></h4></div>
             <div><%= "出版社: #{book[:publisherName]}" %></div>
             <div><%= "著者: #{book[:author]}" %></div>
-            <div><%= "ISBN: #{book[:isbn]}" %></div
+            <div><%= "ISBN: #{book[:isbn]}" %></div>
             <% book.stores.each do |store| %>
               <%= "特価: #{store.name} "%>
               <%= store.itemPrice %>

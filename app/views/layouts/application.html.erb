@@ -40,15 +40,28 @@
                 <li class="nav-item">
                   <%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %>
                 </li>
-                <li class="nav-item">
-                  <%= link_to 'お気に入り', favorites_top_path, class: "nav-link" %></a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    お気に入り
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <%= link_to 'セール中の書籍', favorites_top_path, class: "dropdown-item" %>
+                    <%= link_to '登録書籍一覧', favorites_index_path, class: "dropdown-item" %>
+                    <%= link_to '書籍を探す', favorites_search_path, class: "dropdown-item" %>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <%= link_to '所有している書籍', book_shelfs_top_path, class: "nav-link" %></a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    所有している書籍
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <%= link_to '所有している書籍', book_shelfs_top_path, class: "dropdown-item" %>
+                    <%= link_to '書籍を探す', book_shelfs_search_path, class: "dropdown-item" %>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <%= link_to '問い合わせ', questions_top_path, class: "nav-link" %>
-                </li>
+                <!--<li class="nav-item">-->
+                <!--  <%= link_to '問い合わせ', questions_top_path, class: "nav-link" %>-->
+                <!--</li>-->
               <% end %>
             </ul>
           </div>

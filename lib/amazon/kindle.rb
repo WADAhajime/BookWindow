@@ -49,19 +49,23 @@ module Amazon::Kindle extend self
   end
   
   private
-    def read(result)
-      title = result['title']
-      url = result['itemUrl']
-      isbn = result['isbn']
-      itemPrice = result['itemPrice']
-      image_url = result['mediumImageUrl'].gsub('?_ex=120x120', '')
-  
-      {
-        title: title,
-        url: url,
-        isbn: isbn,
-        itemPrice: itemPrice,
-        image_url: image_url,
-      }
-    end
+  def read(result)
+    image_url = result['largeImageUrl']#.gsub('?_ex=200x200', '')
+    title = result['title']
+    publisherName = result['publisherName']
+    author = result['author']
+    isbn = result['isbn']
+    itemPrice = result['itemPrice']
+    url = result['itemUrl']
+    
+    {
+      image_url: image_url,
+      title: title,
+      publisherName: publisherName,
+      author: author,
+      isbn: isbn,
+      itemPrice: itemPrice,
+      url: url,
+    }
+  end
 end
