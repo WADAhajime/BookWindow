@@ -19,13 +19,13 @@ This web application is written by ruby 2.6.3.
 URLは
 https://calm-forest-38593.herokuapp.com/
 です。
-テストユーザーのメールアドレスは dummy@dummy.co.jp 、パスワードは root です。
+「簡単ログイン」のボタンから既存のユーザーとしてログインできます。
 
 This web application is already deployed on Heroku.
 URL is
 https://calm-forest-38593.herokuapp.com/
 is.
-The test user's email address is dummy@dummy.co.jp and the password is root.
+You can log in as an existing user from the "Easy Login" button
 
 # Authors
 和田　啓
