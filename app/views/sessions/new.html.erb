@@ -10,20 +10,14 @@
           <%= f.label :パスワード, class: "text-white" %>
           <%= f.password_field :password, class: "form-control", placeholder:"パスワード" %>
         </div>
-        <P>テストユーザーのメールアドレス: dummy@dummy.co.jp</P>
-        <P>テストユーザー のパスワード: root</P>
         <%= f.submit "ログイン", class: "btn btn-primary btn-lg btn-block" %>
       <% end %>
-      <!--<%= form_for :session, url: login_path do |f| %>-->
-      <!--  <%= hidden_field_tag :email, "dummy@dummy.co.jp" %>-->
-      <!--  <%= hidden_field_tag :password, "root" %>-->
-      <!--  <%= f.submit "簡単ログイン", class: "btn btn-warning btn-lg btn-block" %>-->
-      <!--<% end %>-->
+      <%= form_for :session, url: login_path do |f| %>
+        <%= hidden_field_tag "session[email]", "dummy@dummy.co.jp" %>
+        <%= hidden_field_tag "session[password]", "root" %>
+        <%= f.submit "簡単ログイン", class: "btn btn-warning btn-lg btn-block" %>
+      <% end %>
     </div>
   </div>
 </div>
-
-<!--<input type="submit" name="commit" value="簡単ログイン" class="btn-easylogin" data-disable-with="簡単ログイン">-->
-
-
       
