@@ -1,23 +1,23 @@
 <div class="container-fluid"> 
-    <% @favorite_books.each do |favo_book| %>
-      <% if favo_book.stores.present?%>
-        <div class="row book">
-          <div class="col-md-3 image">
-            <img src="<%= favo_book[:image_url] %>" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-9">
-            <div class="text">
-              <div><h4><%= favo_book[:title] %></h4></div>
-              <div><%= "出版社: #{favo_book[:publisherName]}" %></div>
-              <div><%= "著者: #{favo_book[:author]}" %></div>
-              <div><%= "ISBN: #{favo_book[:isbn]}" %></div
-              <% favo_book.stores.each do |store| %>
-                <%= "特価: #{store.name} "%>
-                <%= store.itemPrice %>
-              <% end %>
-            </div>
+  <% @favorite_books.each do |favo_book| %>
+    <% if favo_book.stores.present?%>
+      <div class="row book">
+        <div class="col-md-3 image">
+          <img src="<%= favo_book[:image_url] %>" class="img-fluid" alt="">
+        </div>
+        <div class="col-md-9">
+          <div class="text">
+            <div><h4><%= favo_book[:title] %></h4></div>
+            <div><%= "出版社: #{favo_book[:publisherName]}" %></div>
+            <div><%= "著者: #{favo_book[:author]}" %></div>
+            <div><%= "ISBN: #{favo_book[:isbn]}" %></div>
+            <% favo_book.stores.each do |store| %>
+              <%= "特価: #{store.name} "%>
+              <%= store.itemPrice %>
+            <% end %>
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
+  <% end %>
 </div>
